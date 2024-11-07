@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo do Plano Familiar Spotify</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f7f9fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            max-width: 400px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #1db954;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        #resultado1, #resultado2 {
+            font-size: 20px;
+            color: #1db954;
+            margin-top: 15px;
+        }
+
+
+        button {
+            background-color: #1db954;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1aa34a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Plano Familiar Spotify</h1>
+        <p>Valor do plano mensal: R$ <span id="valor-mensal">34,90</span></p>
+        <button onclick="calcularValorPorPessoa()">Calcular Valor Anual por Pessoa</button>
+        <p id="resultado1"></p>
+        <p id="resultado2"></p>
+    </div>
+
+    <script>
+        function calcularValorPorPessoa() {
+            // Obter o valor mensal do plano diretamente do HTML
+            const valorMensalTexto = document.getElementById('valor-mensal').innerText;
+            const valorMensal = parseFloat(valorMensalTexto.replace(',', '.'));
+
+            // Realizar os cálculos
+            const valorAnualPorPessoa = (valorMensal * 12) / 6;
+            const valorBienalPorPessoa = (valorAnualPorPessoa * 2)
+            document.getElementById('resultado1').innerText = `Valor anual por pessoa: R$ ${valorAnualPorPessoa.toFixed(2)}`;
+            document.getElementById('resultado2').innerText = `Valor Bienal por pessoa: R$ ${valorBienalPorPessoa.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
